@@ -1,0 +1,28 @@
+<div class="search-bar-container">
+  <div class="home-button-container">
+    <button class="home-button" (click)="navigateHome()">Home</button>
+  </div>
+  <input type="text"
+         placeholder="Search..."
+         [(ngModel)]="query"
+         (keydown.enter)="performSearch(query)"
+         class="search-input" />
+  <button (click)="performSearch(query)" class="search-button">Search</button>
+</div>
+
+<div *ngIf="searchResults.length > 0; else noResults" class="search-results">
+  <ul>
+    <li *ngFor="let result of searchResults">
+      <h4 (click)="navigateToSection(result.route, result.sectionId)">
+        {{ result.title }} - {{ result.sectionTitle }}
+      </h4>
+      <p class="result-snippet">
+        {{ result.snippet }}
+      </p>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noResults>
+  <p>No results found for "{{ query }}".</p>
+</ng-template>

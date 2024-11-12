@@ -1,0 +1,65 @@
+<header>
+  <h1>GDC Software Resources</h1>
+</header>
+
+<nav>
+  <div class="nav-content">
+    <div class="nav-links-container">
+      <ul class="nav-links">
+        <li>
+          <a>Cassette Printers</a>
+          <ul class="dropdown">
+            <li><a routerLink="/Flex" routerLinkActive="active">Flex Printers</a></li>
+            <li><a routerLink="/PH" routerLinkActive="active">PH Printers</a></li>
+            <li><a routerLink="/AB-JB-CL" routerLinkActive="active">AB/JB/CL Series Printers</a></li>
+          </ul>
+        </li>
+        <li>
+          <a routerLink="/PH" routerLinkActive="active">Label Printers</a>
+          <ul class="dropdown">
+            <li><a routerLink="/PH">Overview</a></li>
+            <li><a routerLink="/PH">Setup Guide</a></li>
+            <li><a routerLink="/PH">Troubleshooting</a></li>
+          </ul>
+        </li>
+        <li>
+          <a  routerLinkActive="active">Misc</a>
+          <ul class="dropdown">
+            <li><a routerLink="/AB-JB-CL">Overview</a></li>
+            <li><a routerLink="/AB-JB-CL">Setup Guide</a></li>
+            <li><a routerLink="/AB-JB-CL">Troubleshooting</a></li>
+          </ul>
+        </li>
+        <li>
+          <a routerLink="/home" routerLinkActive="active">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h2>Flex Printers</h2>
+
+<section id="overview">
+  <h3>Overview</h3>
+  <p>
+  </p>
+</section>
+
+<section id="setup">
+  <h3>Setup Guide</h3>
+  <p>This section covers the setup process for Flex Printers, including step-by-step instructions...</p>
+</section>
+
+<section id="troubleshooting">
+  <h3>Troubleshooting</h3>
+  <p>This section includes common troubleshooting tips and solutions for Flex Printers...</p>
+  <ul>
+    <li>Make sure the printer is connected</li>
+    <li>Check device manager for USB connection and SamLight driver</li>
+    <li>Power cycle the printer and computer</li>
+    <li>Turn on the printer before the computer</li>
+  </ul>
+</section>
+
+<router-outlet></router-outlet>

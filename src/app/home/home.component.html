@@ -1,0 +1,62 @@
+
+<header>
+  <h1>GDC Software Resources</h1>
+</header>
+
+
+<nav>
+  <div class="nav-content">
+    <div class="nav-links-container">
+      <ul class="nav-links">
+
+
+        <li>
+          <a>Cassette Printers</a>
+          <ul class="dropdown">
+            <li><a routerLink="/Flex" routerLinkActive="active">Flex Printers</a></li>
+            <li><a routerLink="/PH" routerLinkActive="active">PH Printers</a></li>
+            <li><a routerLink="/AB-JB-CL" routerLinkActive="active">AB/JB/CL Series Printers</a></li>
+          </ul>
+        </li>
+
+
+        <li>
+          <a>Label Printers</a>
+          <ul class="dropdown">
+            <li><a routerLink="/PH" fragment="overview">Overview</a></li>
+            <li><a routerLink="/PH" fragment="setup">Setup Guide</a></li>
+            <li><a routerLink="/PH" fragment="troubleshooting">Troubleshooting</a></li>
+          </ul>
+        </li>
+
+
+        <li>
+          <a>Misc</a>
+          <ul class="dropdown">
+            <li><a routerLink="/AB-JB-CL" fragment="overview">Overview</a></li>
+            <li><a routerLink="/AB-JB-CL" fragment="setup">Setup Guide</a></li>
+            <li><a routerLink="/AB-JB-CL" fragment="troubleshooting">Troubleshooting</a></li>
+          </ul>
+        </li>
+
+
+        <li>
+          <a routerLink="/home" routerLinkActive="active">About</a>
+        </li>
+      </ul>
+
+
+    </div>
+    <input type="text"
+           placeholder="Search..."
+           class="search-bar"
+           (keydown.enter)="onSearch()"
+           [(ngModel)]="searchTerm" />
+  </div>
+</nav>
+
+
+<h2>Placeholder</h2>
+
+
+<router-outlet></router-outlet>

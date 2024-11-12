@@ -1,0 +1,132 @@
+<header>
+  <h1>GDC Software Resources</h1>
+</header>
+
+<nav>
+  <div class="nav-content">
+    <div class="nav-links-container">
+      <ul class="nav-links">
+        <li>
+          <a>Cassette Printers</a>
+          <ul class="dropdown">
+            <li><a routerLink="/Flex" routerLinkActive="active">Flex Printers</a></li>
+            <li><a routerLink="/PH" routerLinkActive="active">PH Printers</a></li>
+            <li><a routerLink="/AB-JB-CL" routerLinkActive="active">AB/JB/CL Series Printers</a></li>
+          </ul>
+        </li>
+        <li>
+          <a routerLink="/PH" routerLinkActive="active">Label Printers</a>
+          <ul class="dropdown">
+            <li><a routerLink="/PH">Overview</a></li>
+            <li><a routerLink="/PH">Setup Guide</a></li>
+            <li><a routerLink="/PH">Troubleshooting</a></li>
+          </ul>
+        </li>
+        <li>
+          <a routerLinkActive="active">Misc</a>
+          <ul class="dropdown">
+            <li><a routerLink="/AB-JB-CL">Overview</a></li>
+            <li><a routerLink="/AB-JB-CL">Setup Guide</a></li>
+            <li><a routerLink="/AB-JB-CL">Troubleshooting</a></li>
+          </ul>
+        </li>
+        <li>
+          <a routerLink="/home" routerLinkActive="active">About</a>
+        </li>
+      </ul>
+    </div>
+    <input type="text"
+           placeholder="Search..."
+           class="search-bar"
+           (keydown.enter)="onSearch()"
+           [(ngModel)]="searchTerm" />
+  </div>
+</nav>
+
+<h2>Flex Printers</h2>
+
+<section id="overview">
+  <h3>Overview</h3>
+  <p>
+    This section includes information on Flex Printer configurations, setup, and troubleshooting.
+  </p>
+</section>
+
+<section id="database-configuration">
+  <h3>Database Configuration Install (Flex)</h3>
+  <ol>
+    <li>Navigate to <code>C:\Program Files\General Data Healthcare\LaserTrack - Cassette Printing</code> and delete <code>gdcSettings.db</code>.</li>
+    <li>Start SamLight.</li>
+    <li>
+      Start Flex (create a shortcut if needed). Right-click on your desktop, select "New > Shortcut," and enter the following path:
+      <pre>C:\Windows\System32\cmd.exe /c "net start gdcCassettePrinting"</pre>
+    </li>
+    <li>
+      Open a browser (e.g., Chrome) and go to <code>localhost:5000</code>.
+      <ul>
+        <li>
+          Go to the <strong>Settings</strong> tab and click on the lock icon in the bottom right.
+          <ul>
+            <li>Password: <strong>lt4354</strong> (DO NOT GIVE TO CUSTOMER)</li>
+            <li>Customer Password: <strong>3539</strong></li>
+          </ul>
+        </li>
+        <li>
+          In the <strong>Service(s)</strong> tab:
+          <ul>
+            <li>Select <strong>RegEx</strong> in the Name field and toggle "Enable".</li>
+            <li>Set value for <code>(?&lt;=(?:[^\|]*\|){{ '{' }}3{{ '}' }})[^\|]* Color Location</code>.</li>
+            <li>Map Format Entity and LIS Field Values using Regex101 with .NET (C#) and the given FlatFile.</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Place the FlatFile in <code>C:\lis data</code>.</li>
+    <li>The queue should populate at <code>localhost:5000</code> after completing step 5.</li>
+    <li>
+      Inspect items in the queue:
+      <ul>
+        <li>Open the Network tab, click <strong>PrintJob</strong>, and verify values in the Response tab.</li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<section id="backup-files">
+  <h3>Backup File Locations</h3>
+  <p>Instructions on where to store various backup files:</p>
+  <ul>
+    <li><code>.lcf</code> and <code>.ucf</code>: Store in <code>Scaps/sam2d/usc1</code>.</li>
+    <li><code>flex.sjf</code> and <code>gdcsettings.db</code>: Store in <code>C:\Program Files\General Data Healthcare\LaserTrack - Cassette Printing</code>.</li>
+    <li>
+      Files in <code>Scaps/sam2d/system</code>:
+      <ul>
+        <li>sc_498_50708.scl</li>
+        <li>sc_light_settings.sam</li>
+        <li>sc_pwd_498_50708.txt</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section id="regex">
+  <h3>RegEx Patterns</h3>
+  <pre>
+FlatFile Example: Genesys2.itl|1|1|102|3|Genesys||4513146|sg-24-1500-A-1|sg-24-1500-A-1|  01 AJ||sg-24-1500|A|1|
+Color: (?<=(?:[^\|]*\|){{ '{' }}3{{ '}' }})[^\|]*
+Barcode: (?<=(?:[^\|]*\|){{ '{' }}8{{ '}' }})[^\|]*
+Accession Number: (?<=(?:[^\|]*\|){{ '{' }}12{{ '}' }})[^\|]*
+Part Block: (?<=(?:[^\|]*\|){{ '{' }}13{{ '}' }})[^\|]*~""~(?<=(?:[^\|]*\|){{ '{' }}14{{ '}' }})[^\|]*
+  </pre>
+</section>
+<section id="troubleshooting">
+  <h3>Troubleshooting</h3>
+  <ul>
+    <li>Make sure the printer is connected</li>
+    <li>Check device manager to see if the USB connection is there; ensure the SamLight driver is installed</li>
+    <li>Power cycle the printer and computer</li>
+    <li>Make sure the printer is turned on before starting the computer</li>
+  </ul>
+</section>
+
+<router-outlet></router-outlet>
