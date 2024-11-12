@@ -119,6 +119,7 @@ Accession Number: (?<=(?:[^\|]*\|){{ '{' }}12{{ '}' }})[^\|]*
 Part Block: (?<=(?:[^\|]*\|){{ '{' }}13{{ '}' }})[^\|]*~""~(?<=(?:[^\|]*\|){{ '{' }}14{{ '}' }})[^\|]*
   </pre>
 </section>
+
 <section id="troubleshooting">
   <h3>Troubleshooting</h3>
   <ul>
@@ -128,5 +129,28 @@ Part Block: (?<=(?:[^\|]*\|){{ '{' }}13{{ '}' }})[^\|]*~""~(?<=(?:[^\|]*\|){{ '{
     <li>Make sure the printer is turned on before starting the computer</li>
   </ul>
 </section>
+
+<div class="edit-button-container">
+  <button class="edit-button" (click)="toggleEditMode()">Edit</button>
+</div>
+
+<div *ngIf="editMode" class="edit-form">
+  <h3>{{ editSection ? 'Edit Section' : 'Add New Section' }}</h3>
+
+  <label for="section-select">Select Section:</label>
+  <select [(ngModel)]="editSection" name="section-select" (change)="loadSectionContent()">
+    <option [ngValue]="null">New Section</option>
+    <option *ngFor="let section of sections" [ngValue]="section">{{ section.title }}</option>
+  </select>
+
+  <label for="section-title">Section Title:</label>
+  <input [(ngModel)]="newSectionTitle" name="section-title" placeholder="Section Title" />
+
+  <label for="section-content">Section Content:</label>
+  <textarea [(ngModel)]="newSectionContent" name="section-content" placeholder="Section Content"></textarea>
+
+  <button (click)="saveSection()">Save</button>
+  <button (click)="cancelEdit()">Cancel</button>
+</div>
 
 <router-outlet></router-outlet>
