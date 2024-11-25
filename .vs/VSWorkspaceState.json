@@ -3,10 +3,18 @@
     "",
     "\\src",
     "\\src\\app",
+<<<<<<< Updated upstream
     "\\src\\app\\home",
     "\\src\\app\\ph",
     "\\src\\app\\search-results"
   ],
   "SelectedNode": "\\src\\app\\home\\home.component.css",
+=======
+    "\\src\\app\\abjbcl",
+    "\\src\\app\\flex",
+    "\\src\\app\\ph",
+    "\\src\\app\\search-results"
+  ],
+>>>>>>> Stashed changes
   "PreviewInSolutionExplorer": false
 }

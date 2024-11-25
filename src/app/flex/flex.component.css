@@ -118,17 +118,20 @@ section {
     margin: 0.5rem 0;
   }
 
-  section ol, section ul {
+  section ol,
+  section ul {
     margin: 1rem 0;
     padding-left: 1.5rem;
     color: #333;
   }
 
-    section ol li, section ul li {
+    section ol li,
+    section ul li {
       margin: 0.5rem 0;
     }
 
-pre, code {
+pre,
+code {
   background-color: #f4f4f4;
   color: #333;
   padding: 0.5rem;
@@ -178,3 +181,109 @@ h2 {
   color: #34495e;
   margin-top: 1.5rem;
 }
+<<<<<<< Updated upstream
+=======
+
+.edit-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.edit-button {
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  .edit-button:hover {
+    background-color: #16a085;
+  }
+
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  .delete-button:hover {
+    background-color: #c0392b;
+  }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+  .modal-content h3 {
+    margin-top: 0;
+    color: #34495e;
+  }
+
+.edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+  .edit-actions button {
+    margin-left: 0.5rem;
+  }
+
+.save-button {
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+  .save-button:hover {
+    background-color: #16a085;
+  }
+
+.cancel-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+  .cancel-button:hover {
+    background-color: #c0392b;
+  }
+>>>>>>> Stashed changes

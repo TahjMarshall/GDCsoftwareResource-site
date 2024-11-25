@@ -4,18 +4,23 @@ import { DataService } from '../data.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+//import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule,
+    //HttpClientModule
+  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
   searchTerm: string = '';
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(
+    private dataService: DataService,
+    private router: Router) { }
 
   ngOnInit(): void {
     const sections = [
@@ -27,7 +32,7 @@ export class HomeComponent {
      
     ];
 
-    this.dataService.addPageContent('About', '/home', sections);
+   this.dataService.addPageContent('About', '/home', sections);
   }
 
   onSearch(): void {
